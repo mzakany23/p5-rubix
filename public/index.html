@@ -2,14 +2,50 @@
 <head>
 	<title>rubix p5</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<style type="text/css">
+		body {
+			min-height: 1000px;
+		}
+	</style>
 </head>
 <body>
 
-<button class='btn btn-danger' id='cc'>manual clockwise</button>
-<button class='btn btn-danger' id='ccw'>manual counter clockwise</button>
-<br>
+<div class="container">
 
-<div id="grid"></div>
+	<div class="row">
+		<h1>Grid Rotations</h1>
+		<p>with p5.js</p>
+		<hr>
+		<div class="col-md-2">
+			<button class='btn btn-danger' id='cc'>+</button>
+			<button class='btn btn-danger' id='ccw'>-</button>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+	<div class="col-md-1">
+		<label>Grid Size</label>
+		<select class="form-control" id='sdd'>
+		  <option value=5>5</option>
+		  <option value=8>8</option>
+		  <option value=10>10</option>
+		  <option value=12>12</option>
+		</select>
+	</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-2">
+			<button class='btn btn-info' id='scc'>spin +</button>
+			<button class='btn btn-info' id='sccw'>spin -</button>
+		</div>
+	</div>
+
+	<hr>
+	<div id="grid"></div>
+
+</div>
 
 <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.min.js'></script>
 <script type="text/javascript" src='./src/cell.js'></script>
