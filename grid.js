@@ -1,3 +1,8 @@
+function changeSizeForm(e) {
+	e.preventDefault()
+	console.log('here')
+}
+
 function rotateGrid(p) {
 	getRingList(size,gridCopy).map(function(ring) {
 		twist(ring)(p)
