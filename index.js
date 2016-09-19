@@ -8,7 +8,6 @@ var count = 0
 
 function setup() {
 	cvs = createCanvas(600,600)
-	background(200)
 	size = 5
 	moveOver = size-1
 	cvs.id('grid')

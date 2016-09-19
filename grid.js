@@ -47,9 +47,38 @@ function setupGrid() {
 	for (var x=0; x<size;x++) {
 		for (var y=0; y<size; y++) {
 			count += 1
-			grid.push(new Cell(x,y,count))
+			var cell = new Cell(x,y,count)
+			grid.push(cell)
 		}
 	}
+
+	var ring0 = {
+		first: getRow([0,0],[4,0],grid),
+		second: getCol([4,0],[4,4],grid),
+		third: getRow([0,4],[4,4],grid),
+		fourth: getCol([0,0],[0,4],grid)
+	}
+
+	var ring1 = {
+		first: getRow([1,1],[3,1],grid),
+		second: getCol([3,1],[3,3],grid),
+		third: getRow([1,3],[3,3],grid),
+		fourth: getCol([1,1],[1,3],grid)
+	}
+
+	setRingColor(ring0)
+	setRingColor(ring1)
+}
+
+function setRingColor(ring) {
+	var colorList = ['#FB0031','#67E35A','#9A59CC']
+	
+	Object.keys(ring).map(function(key) {
+		var r = ring[key]
+		r.map(function(cell) {
+			cell.color = colorList[floor(random(1,3))]
+		})
+	})
 }
 
 function getCell(x,y,g) {
