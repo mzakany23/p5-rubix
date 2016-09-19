@@ -1,8 +1,3 @@
-function changeSizeForm(e) {
-	e.preventDefault()
-	console.log('here')
-}
-
 function rotateGrid(p) {
 	getRingList(size,gridCopy).map(function(ring) {
 		twist(ring)(p)
@@ -14,7 +9,12 @@ function rotateClockwise() {
 }	
 
 function rotateCClockwise() {
-	pos <= 1 ? pos = 4 : pos -= 1	
+	if (pos === 0) {
+		pos = 3
+	} else {
+		pos <= 1 ? pos = 4 : pos -= 1	
+	}
+	
 	rotateGrid(pos)
 }
 

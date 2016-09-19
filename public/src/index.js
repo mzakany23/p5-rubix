@@ -27,10 +27,10 @@ function draw() {
 	drawGrid()
 }
 
-var form = document.getElementById('changeSizeForm')
+document.getElementById('cc').addEventListener('click',function() {
+	rotateClockwise()
+})
 
-form.addEventListener('submit',function(e) {
-	e.preventDefault()
-	var s = parseInt(document.getElementById('sizeId').value)
-	init(s)
+document.getElementById('ccw').addEventListener('click',function() {
+	rotateCClockwise()
 })
