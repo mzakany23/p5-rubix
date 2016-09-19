@@ -1,13 +1,17 @@
-function rotateGrid() {
-	
-	var ringList = getRingList(size,gridCopy)
-
-	ringList.map(function(ring) {
-		twist('cw',ring)(pos)
+function rotateGrid(p) {
+	getRingList(size,gridCopy).map(function(ring) {
+		twist(ring)(p)
 	})
-	
-	pos === 4 ? pos = 1 : pos += 1
+}
+function rotateClockwise() {
+	pos > 3 ? pos = 1 : pos += 1	
+	rotateGrid(pos)
 }	
+
+function rotateCClockwise() {
+	pos <= 1 ? pos = 4 : pos -= 1	
+	rotateGrid(pos)
+}
 
 function getRow(f,t,g) {
 	var row = []
@@ -58,9 +62,7 @@ function setupGrid() {
 		}
 	}
 
-	rings = getRingList(size,grid)
-	
-	rings.map(function(ring) {
+	getRingList(size,grid).map(function(ring) {
 		setRingColor(ring)
 	})
 }

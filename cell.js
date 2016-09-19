@@ -16,7 +16,6 @@ function Cell(x,y,data) {
 		var b = this.border
 		var txt = ''
 		
-
 		txt = `(${this.x},${this.y})`
 		
 		fill(200,this.color,10)

@@ -3,7 +3,7 @@ var w = 80
 var cvs
 var gridCopy
 var currentCell 
-var pos = 1
+var pos = 0
 var count = 0
 var rings
 
@@ -18,5 +18,6 @@ function setup() {
 
 function draw() {
 	clear()
+	frameRate(10)
 	drawGrid()
 }
