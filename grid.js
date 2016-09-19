@@ -6,7 +6,7 @@ function rotateGrid() {
 		fourth: getCol([0,0],[0,4],gridCopy)
 	}
 
-	twist('ccw',ring0)(pos)
+	twist('cw',ring0)(pos)
 
 	var ring1 = {
 		first: getRow([1,1],[3,1],gridCopy),
@@ -14,7 +14,7 @@ function rotateGrid() {
 		third: getRow([1,3],[3,3],gridCopy),
 		fourth: getCol([1,1],[1,3],gridCopy)
 	}
-	twist('ccw',ring1)(pos)
+	twist('cw',ring1)(pos)
 	
 	pos === 4 ? pos = 1 : pos += 1
 }	
@@ -71,12 +71,12 @@ function setupGrid() {
 }
 
 function setRingColor(ring) {
-	var colorList = ['#FB0031','#67E35A','#9A59CC']
-	
-	Object.keys(ring).map(function(key) {
-		var r = ring[key]
+	var ra = [ring.first,ring.second,ring.third,ring.fourth]
+	var c = 100
+	var i = floor(random(5,10))
+	ra.map(function(r) {
 		r.map(function(cell) {
-			cell.color = colorList[floor(random(1,3))]
+			cell.color = c += i
 		})
 	})
 }

@@ -1,6 +1,6 @@
 function Cell(x,y,data) {
 	this.data = data
-	this.color = '#BCC0C0'
+	this.color = 10
 	this.x = x
 	this.y = y 
 	this.border = {
@@ -19,7 +19,7 @@ function Cell(x,y,data) {
 
 		txt = `(${this.x},${this.y})`
 		
-		fill(this.color)
+		fill(200,this.color,10)
 		rect(x,y,w,w)
 
 		fill(0,0,0)
@@ -27,20 +27,5 @@ function Cell(x,y,data) {
 		text(txt,x+25,y+55)
 		
 
-		// if (b.left) {
-		// 	line(x,y,x,y+w)
-		// }
-
-		// if (b.right) {
-		// 	line(x+w,y,x+w,y+w)	
-		// }
-		
-		// if (b.top) {
-		// 	line(x,y,x+w,y)	
-		// }
-		
-		// if (b.bottom) {
-		// 	line(x,y+w,x+w,y+w)	
-		// }	
 	}
 }
