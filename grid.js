@@ -1,20 +1,10 @@
 function rotateGrid() {
-	var ring0 = {
-		first: getRow([0,0],[4,0],gridCopy),
-		second: getCol([4,0],[4,4],gridCopy),
-		third: getRow([0,4],[4,4],gridCopy),
-		fourth: getCol([0,0],[0,4],gridCopy)
-	}
+	
+	var ringList = getRingList(size,gridCopy)
 
-	twist('cw',ring0)(pos)
-
-	var ring1 = {
-		first: getRow([1,1],[3,1],gridCopy),
-		second: getCol([3,1],[3,3],gridCopy),
-		third: getRow([1,3],[3,3],gridCopy),
-		fourth: getCol([1,1],[1,3],gridCopy)
-	}
-	twist('cw',ring1)(pos)
+	ringList.map(function(ring) {
+		twist('cw',ring)(pos)
+	})
 	
 	pos === 4 ? pos = 1 : pos += 1
 }	
@@ -43,6 +33,22 @@ function drawGrid() {
 	}
 }
 
+function getRingList(count,g) {
+	var ringList = []
+	var i = 0
+
+	for (var j = count-1;j>2;j--) {
+		ringList.push({
+			first: getRow([i,i],[j,i],g),
+			second: getCol([j,i],[j,j],g),
+			third: getRow([i,j],[j,j],g),
+			fourth: getCol([i,i],[i,j],g)
+		})
+		i+=1
+	}
+	return ringList
+}
+
 function setupGrid() {
 	for (var x=0; x<size;x++) {
 		for (var y=0; y<size; y++) {
@@ -52,22 +58,11 @@ function setupGrid() {
 		}
 	}
 
-	var ring0 = {
-		first: getRow([0,0],[4,0],grid),
-		second: getCol([4,0],[4,4],grid),
-		third: getRow([0,4],[4,4],grid),
-		fourth: getCol([0,0],[0,4],grid)
-	}
-
-	var ring1 = {
-		first: getRow([1,1],[3,1],grid),
-		second: getCol([3,1],[3,3],grid),
-		third: getRow([1,3],[3,3],grid),
-		fourth: getCol([1,1],[1,3],grid)
-	}
-
-	setRingColor(ring0)
-	setRingColor(ring1)
+	rings = getRingList(size,grid)
+	
+	rings.map(function(ring) {
+		setRingColor(ring)
+	})
 }
 
 function setRingColor(ring) {

@@ -5,6 +5,7 @@ var gridCopy
 var currentCell 
 var pos = 1
 var count = 0
+var rings
 
 function setup() {
 	cvs = createCanvas(600,600)
