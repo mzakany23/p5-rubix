@@ -10,13 +10,16 @@ function twist(direction,gc) {
 			for (var i=0; i<end;i++){
 				if (type === 'row') {
 					var cell = getCell(i+p.x,p.y,grid)
-					cell.data = positions[i].data
+					var pos = positions[i]
 				}
 
 				if (type === 'col'){
 					var cell = getCell(p.x,i+p.y,grid)
-					cell.data = positions[i].data
+					var pos = positions[i]
 				}
+
+				cell.color = pos.color
+				cell.data = pos.data
 
 			}
 		} else if (order === 'descending') {
@@ -25,14 +28,17 @@ function twist(direction,gc) {
 				var c = end-1
 				if (type === 'row') {
 					var cell = getCell(i+p.x,p.y,grid)
-					cell.data = positions[c-i].data
+					var pos = positions[c-i]
 				}
 
 				if (type === 'col'){
 					var cell = getCell(p.x,i+p.y,grid)
-					cell.data = positions[c-i].data
+					var pos = positions[c-i]
 				}
 				
+				cell.color = pos.color
+				cell.data = pos.data
+
 			}
 		}
 	}
