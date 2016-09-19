@@ -1,38 +1,28 @@
 function rotateGrid() {
-	// var ring0 = {
-	// 	first: getRow([0,0],[4,0],gridCopy),
-	// 	second: getCol([4,0],[4,4],gridCopy),
-	// 	third: getRow([0,4],[4,4],gridCopy),
-	// 	fourth: getCol([0,0],[0,4],gridCopy)
-	// }
-
-	// twist('clockwise',ring0)(pos)
-
-	var ring1 = {
-		first: getRow([1,1],[3,1],gridCopy),
-		second: getCol([3,1],[3,3],gridCopy),
-		third: getRow([1,3],[3,3],gridCopy),
-		fourth: getCol([1,1],[1,3],gridCopy)
+	var ring0 = {
+		first: getRow([0,0],[4,0],gridCopy),
+		second: getCol([4,0],[4,4],gridCopy),
+		third: getRow([0,4],[4,4],gridCopy),
+		fourth: getCol([0,0],[0,4],gridCopy)
 	}
-	console.log(ring1)
-	twist('clockwise',ring1)(pos)
+
+	twist('clockwise',ring0)(pos)
+
+	// var ring1 = {
+	// 	first: getRow([1,1],[3,1],gridCopy),
+	// 	second: getCol([3,1],[3,3],gridCopy),
+	// 	third: getRow([1,3],[3,3],gridCopy),
+	// 	fourth: getCol([1,1],[1,3],gridCopy)
+	// }
+	// twist('clockwise',ring1)(pos)
 	
 	pos === 4 ? pos = 1 : pos += 1
 }	
 
-function getPositions(c,g) {
-	return {
-		first: getRow(c.top.from,c.right.to,g),
-		second: getCol(c.right.from,c.right.to,g),
-		third: getRow(c.bottom.from,c.bottom.to,g),
-		fourth: getCol(c.left.from,c.left.to,g)
-	}
-}
-
 function getRow(f,t,g) {
 	var row = []
 	for (var i=f[0];i<=t[0];i++) {
-		row.push(getCell(i,f[0],g))
+		row.push(getCell(i,t[1],g))
 	}
 	return row
 }

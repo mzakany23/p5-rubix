@@ -1,6 +1,6 @@
 function twist(direction,gc) {
 	var self = {}
-		
+
 	self._twist = function(position,positions,type,order,index) {
 		if (order === 'ascending') {
 			for (var i=0; i<size;i++){
@@ -32,6 +32,7 @@ function twist(direction,gc) {
 					w = index 
 					x = i
 				}
+
 				getCell(w,x,grid).data = positions[c-i].data
 			}
 		}
