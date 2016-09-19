@@ -61,15 +61,40 @@ function twist(direction,gc) {
 				break
 		}
 	}
-	
+
 	self._ccw = function() {
-		console.log('counter clockwise will go here')
+		switch (pos) {
+			case 1:
+				self._twist(1,gc.second,'row','descending')
+				self._twist(2,gc.third,'col', 'ascending')
+				self._twist(3,gc.fourth,'row','ascending')
+				self._twist(4,gc.first,'col','descending')
+				break
+			case 2:
+				self._twist(1,gc.third,'row','descending')
+				self._twist(2,gc.fourth,'col','descending')
+				self._twist(3,gc.first,'row','descending')
+				self._twist(4,gc.second,'col','descending')
+				break
+			case 3:
+				self._twist(1,gc.fourth,'row','descending')
+				self._twist(2,gc.first, 'col','ascending')
+				self._twist(3,gc.second, 'row','descending')
+				self._twist(4,gc.third, 'col','ascending')
+				break
+			case 4:
+				self._twist(1,gc.first,'row','ascending')
+				self._twist(2,gc.second,'col', 'ascending')
+				self._twist(3,gc.third,'row','ascending')
+				self._twist(4,gc.fourth,'col','ascending')
+				break
+		}
 	}
 
 	return function(pos) {
-		if (direction === 'clockwise') {
+		if (direction === 'cw') {
 			self._cw()
-		} else {
+		} else if ('ccw'){
 			self._ccw()
 		}
 	}

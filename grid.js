@@ -6,7 +6,7 @@ function rotateGrid() {
 		fourth: getCol([0,0],[0,4],gridCopy)
 	}
 
-	twist('clockwise',ring0)(pos)
+	twist('ccw',ring0)(pos)
 
 	var ring1 = {
 		first: getRow([1,1],[3,1],gridCopy),
@@ -14,7 +14,7 @@ function rotateGrid() {
 		third: getRow([1,3],[3,3],gridCopy),
 		fourth: getCol([1,1],[1,3],gridCopy)
 	}
-	twist('clockwise',ring1)(pos)
+	twist('ccw',ring1)(pos)
 	
 	pos === 4 ? pos = 1 : pos += 1
 }	
