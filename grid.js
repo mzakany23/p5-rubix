@@ -1,12 +1,12 @@
 function rotateGrid() {
-	// var ring0 = {
-	// 	first: getRow([0,0],[4,0],gridCopy),
-	// 	second: getCol([4,0],[4,4],gridCopy),
-	// 	third: getRow([0,4],[4,4],gridCopy),
-	// 	fourth: getCol([0,0],[0,4],gridCopy)
-	// }
+	var ring0 = {
+		first: getRow([0,0],[4,0],gridCopy),
+		second: getCol([4,0],[4,4],gridCopy),
+		third: getRow([0,4],[4,4],gridCopy),
+		fourth: getCol([0,0],[0,4],gridCopy)
+	}
 
-	// twist('clockwise',ring0)(pos)
+	twist('clockwise',ring0)(pos)
 
 	var ring1 = {
 		first: getRow([1,1],[3,1],gridCopy),
