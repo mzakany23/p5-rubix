@@ -1,4 +1,4 @@
-##Rotate grid clockwise and counter clockwise
-working on making a rubix cube with p5.js
+## Rotate grid clockwise/counter clockwise
+
 ![rotate grid](https://github.com/mzakany23/p5-rubix/blob/master/rubix.gif)
 
